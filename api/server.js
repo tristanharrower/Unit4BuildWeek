@@ -18,6 +18,10 @@ server.use(express.json())
 server.use(helmet())
 server.use(cors())
 
+server.get('/', async (req, res) => {
+  res.json('heroku connected!')
+})
+
 server.get('/api/users', async (req, res) => {
   res.json(await getAllUsers())
 })
