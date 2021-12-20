@@ -4,7 +4,10 @@ const router = express.Router();
 
 const Organizer = require('./organizers_model')
 
-
+// TO-DO change create organizer to have a /register endpoint
+//TO_DO create a login endpoint for returning Organizers
+//Create enpoints for attendees
+//create endpoints and table for potluck info that connects to organizer
 
 //get all organizers
 router.get('/', (req, res, next) => {
