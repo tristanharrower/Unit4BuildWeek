@@ -24,7 +24,7 @@ router.get('/', (req, res, next) => {
           username:req.body.username,
           password:req.body.password
       }
-     Organizer.add(newOrganizer)
+     Organizer.insertUser(newOrganizer)
      .then(org => {
          res.status(201).json(org)
      })
