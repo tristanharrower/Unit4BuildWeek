@@ -24,7 +24,7 @@ router.get('/', (req, res, next) => {
           username:req.body.username,
           password:req.body.password
       }
-     Organizer.insertUser(newOrganizer)
+     Organizer.insertOrganizer(newOrganizer)
      .then(org => {
          res.status(201).json(org)
      })
@@ -32,6 +32,17 @@ router.get('/', (req, res, next) => {
          next(err)
      })
   })
+
+  router.delete('/:id', async (req, res, next) => {
+    Organizer.deleteById(req.params.id)
+    .then(() => {
+        res.status(200).json('Organizer successfully deleted')
+    })
+    .catch(err => {
+        next(err)
+    })
+})
+
 
 
 module.exports = router

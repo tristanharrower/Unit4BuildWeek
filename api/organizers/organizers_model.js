@@ -1,7 +1,7 @@
 const db = require('../data/db-config');
 
 
-async function insertUser(organizer) {
+async function insertOrganizer(organizer) {
     // WITH POSTGRES WE CAN PASS A "RETURNING ARRAY" AS 2ND ARGUMENT TO knex.insert/update
     // AND OBTAIN WHATEVER COLUMNS WE NEED FROM THE NEWLY CREATED/UPDATED RECORD
     // UNLIKE SQLITE WHICH FORCES US DO DO A 2ND DB CALL
@@ -14,9 +14,15 @@ async function insertUser(organizer) {
   }
 
   
+    function deleteById(organizer_id) {
+    return db('organizers').where({organizer_id}).del()
+  }
+
+  
 
 
 module.exports = {
     getAllOrganizers,
-    insertUser
+    insertOrganizer,
+    deleteById
 }
