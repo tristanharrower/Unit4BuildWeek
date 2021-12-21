@@ -1,8 +1,11 @@
-const express = require('express')
+const bcrypt = require('bcryptjs')
 
+const express = require('express')
 const router = express.Router();
 
 const Organizer = require('./organizers_model')
+const { BCRYPT_ROUNDS } = require('../../config')
+const {tokenBuilder} = require('./organizer_utilities')
 
 // TO-DO change create organizer to have a /register endpoint
 //TO_DO create a login endpoint for returning Organizers
@@ -27,6 +30,11 @@ router.get('/', (req, res, next) => {
           username:req.body.username,
           password:req.body.password
       }
+
+      const hash = bcrypt.hashSync(newOrganizer.password, BCRYPT_ROUNDS)
+      
+      newOrganizer.password = hash
+
      Organizer.insertOrganizer(newOrganizer)
      .then(org => {
          res.status(201).json(org)
@@ -37,6 +45,27 @@ router.get('/', (req, res, next) => {
   })
 
   //login as organizer
+  router.post('/login', async (req, res, next) => {
+    let { username, password } = req.body
+    Organizer.findBy({username})
+    .then(([org]) => {
+        if(org && bcrypt.compareSync(password, org.password)){
+            const token = tokenBuilder(org)
+            res.status(200).json({
+                organizer_id:org.organizer_id,
+                username:org.username,
+                password:org.password,
+                token
+            })
+        }else{
+            next({
+                status:401,
+                message:'invalid credentials'
+            })
+        }
+    })
+    .catch(next)
+})
 
 
 
