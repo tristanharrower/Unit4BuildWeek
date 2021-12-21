@@ -7,7 +7,7 @@ const Organizer = require('./organizers_model')
 // TO-DO change create organizer to have a /register endpoint
 //TO_DO create a login endpoint for returning Organizers
 //Create enpoints for attendees
-//create endpoints and table for potluck info that connects to organizer
+//create endpoints and table for potluck that connects to organizer
 
 //get all organizers
 router.get('/', (req, res, next) => {
@@ -22,7 +22,7 @@ router.get('/', (req, res, next) => {
 
 
   //create a new organizer
-  router.post('/', async (req, res, next) => {
+  router.post('/register', async (req, res, next) => {
       const newOrganizer = {
           username:req.body.username,
           password:req.body.password
@@ -36,6 +36,11 @@ router.get('/', (req, res, next) => {
      })
   })
 
+  //login as organizer
+
+
+
+  //delete an organizer by id
   router.delete('/:id', async (req, res, next) => {
     Organizer.deleteById(req.params.id)
     .then(() => {
