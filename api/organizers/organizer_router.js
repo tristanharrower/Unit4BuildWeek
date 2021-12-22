@@ -4,6 +4,7 @@ const express = require('express')
 const router = express.Router();
 
 const Organizer = require('./organizers_model')
+const Potlucks = require('../potlucks/potlucks_model')
 const { BCRYPT_ROUNDS } = require('../../config')
 const {tokenBuilder} = require('./organizer_utilities')
 
@@ -68,6 +69,33 @@ router.get('/', (req, res, next) => {
 })
 
 
+//get organizer by organizer_id
+router.get('/:id', async (req, res, next) => {
+    const organizerId = {
+        organizer_id:req.params.id
+    }
+    Organizer.findBy(organizerId)
+    .then(org => {
+        res.status(200).json(org)
+    })
+    .catch(err => {
+        next(err)
+    })
+})
+
+//get all potlucks from specific organizer
+router.get('/:id/potlucks', async (req, res, next) => {
+    const organizerId = {
+        organizer_id:req.params.id
+    }
+    Potlucks.findBy(organizerId)
+    .then(org => {
+        res.status(200).json(org)
+    })
+    .catch(err => {
+        next(err)
+    })
+})
 
   //delete an organizer by id
   router.delete('/:id', async (req, res, next) => {

@@ -10,8 +10,7 @@ async function insertOrganizer(organizer) {
     return db('organizers')
   }
 
-  
-    function deleteById(organizer_id) {
+  function deleteById(organizer_id) {
     return db('organizers').where({organizer_id}).del()
   }
 
@@ -22,9 +21,6 @@ async function insertOrganizer(organizer) {
 
       return org;
   }
-
-  
-
 
 module.exports = {
     getAllOrganizers,
