@@ -6,7 +6,7 @@
 
 |Method   | Endpoint      |Input    | Output  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
-|GET     | /organizers   | n/a     | all organizers|   |
+|GET     | /organizers   | n/a     | gets all organizers|   |
 |POST     | /organizers/register   | username, password    | organizer_id, username, password| creates a new organizer   |
 |POST     | /organizers/login   | username, password    | organizer_id, username, password, token| logs in an organizer and sends back JWT token  |
 |GET     | /organizers/:id   | n/a    | organizer_id, username, password| gets organizer by id, :id=organizer_id  |
