@@ -28,7 +28,7 @@
 |Method   | Endpoint      |Input    | Output  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
 |POST     | /foods   | potluck_id, food_wanted     |food_id, potluck_id, food_wanted | creates new food for specific potluck|
-|GET     | /foods/:id   | n/a    |list of foods for that specific potluck| The id in the url corresponds to the potluck_i,:id=potluck_id  |
+|GET     | /foods/:id   | n/a    |list of foods for that specific potluck| The id in the url corresponds to the potluck_i, :id=potluck_id  |
 
 
 
