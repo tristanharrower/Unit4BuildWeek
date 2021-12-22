@@ -4,6 +4,7 @@ const cors = require('cors')
 
 const organizerRouter = require('../api/organizers/organizer_router');
 const potlucksRouter = require('../api/potlucks/potlucks_router')
+const foodsRouter = require('../api/foods/foods_router');
 
 //starter middlwares
 const server = express()
@@ -14,6 +15,7 @@ server.use(cors())
 //routers as middleware
 server.use('/organizers', organizerRouter);
 server.use('/potlucks', potlucksRouter)
+server.use('/foods', foodsRouter)
 
 //sanity check
 server.get('/', async (req, res) => {

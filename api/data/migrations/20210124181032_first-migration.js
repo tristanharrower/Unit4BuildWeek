@@ -15,17 +15,31 @@ exports.up = async (knex) => {
         .notNullable()
         .references('organizer_id')
         .inTable('organizers')
-        .onDelete('RESTRICT')
-        .onUpdate('RESTRICT')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE')
         potlucks.string('event_name', 128).notNullable()
         potlucks.string('description', 256)
         potlucks.string('event_date').notNullable()
         potlucks.string('event_time').notNullable()
         potlucks.string('location').notNullable()
       })
+
+      await knex.schema 
+      .createTable('foods', (foods) => {
+        foods.increments('food_id')
+        foods.integer('potluck_id')
+        .unsigned()
+        .notNullable()
+        .references('potluck_id')
+        .inTable('potlucks')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE')
+        foods.string('food_wanted').notNullable()
+      })
 }
 
 exports.down = async (knex) => {
   await knex.schema.dropTableIfExists('organizers')
   await knex.schema.dropTableIfExists('potlucks')
+  await knex.schema.dropTableIfExists('foods')
 }
