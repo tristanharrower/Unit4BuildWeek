@@ -6,11 +6,16 @@ async function insertFood(food) {
     return newFood 
   }
 
-async function getAllFoods() {
-    return db('foods')
+  async function findBy(filter) {
+    const potluck = await db("foods")
+      .select('food_id', 'potluck_id', 'food_wanted')
+      .where(filter)
+
+      return potluck;
   }
 
+
   module.exports = {
-      getAllFoods,
-      insertFood
+      insertFood,
+      findBy
   }
