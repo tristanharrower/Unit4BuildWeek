@@ -28,6 +28,23 @@ router.post('/', restricted, (req, res, next) => {
   })
 
 
+  router.get('/:id', restricted, (req, res, next) => {
+      const potluckId = {
+        potluck_id: req.params.id
+      }
+    Potluck.findBy(potluckId)
+    .then(potentialPotluck => {
+        res.status(200).json(potentialPotluck)
+    })
+    .catch(err => {
+        next(err)
+    })
+  })
+
+
+
+
+
 
 
 

@@ -12,7 +12,17 @@ async function insertPotluck(potluck) {
     return db('potlucks')
   }
 
+  async function findBy(filter) {
+    const potluck = await db("potlucks")
+      .select('potluck_id',  'organizer_id', 'event_name', 'description',
+      'event_date', 'event_time', 'location')
+      .where(filter)
+
+      return potluck;
+  }
+
   module.exports = {
       insertPotluck,
-      getAllPotlucks
+      getAllPotlucks,
+      findBy
   }
