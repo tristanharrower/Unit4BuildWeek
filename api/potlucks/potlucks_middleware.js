@@ -21,5 +21,4 @@ const restricted = (req, res, next) => {
   })
 }
 
-//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxLCJvcmdhbml6ZXJuYW1lIjoidHJpc3RhbiIsImlhdCI6MTY0MDIwNDQyOSwiZXhwIjoxNjQwMjkwODI5fQ.Dxfb5Vt4ffWntdxiaeAs5Ll7g-AgEayNBceDqbgH-eE
 module.exports = restricted
