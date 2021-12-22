@@ -21,7 +21,7 @@
 |GET     | /potlucks   | n/a     | all potlucks| gets all potlucks   |
 |POST     | /potlucks   | Header -> Authorization : token, Body -> organizer_id, event_name, description, event_date, event_time, location     |potluck_id, organizer_id, event_name, description, event_date, event_time, location| creates a potluck and connects to organizer using organizer_id in request body   |
 |GET     | /potlucks/:id   | Header -> Authorization:token     | potluck_id, organizer_id, event_name, description, event_date, event_time, location| gets potluck by potluck ID, :id=potluck_id   |
-|DELETE     | /potlucks:id   | n/a     | 'Potluck Deleted!'| deletes potluck, :id=potluck_id  |
+|DELETE     | /potlucks/:id   | n/a     | 'Potluck Deleted!'| deletes potluck, :id=potluck_id  |
 
 ---
 
@@ -30,7 +30,7 @@
 |------   | -----------   | ------- | ------- | ------ |
 |POST     | /foods   | potluck_id, food_wanted     |food_id, potluck_id, food_wanted | creates new food for specific potluck|
 |GET     | /foods/:id   | n/a    |list of foods for that specific potluck| The id in the url corresponds to the potluck_i, :id=potluck_id  |
-|DELETE     | /foods:id   | n/a     | 'Food Deleted!'| deletes food item, :id=food_id  |
+|DELETE     | /foods/:id   | n/a     | 'Food Deleted!'| deletes food item, :id=food_id  |
 
 
 
