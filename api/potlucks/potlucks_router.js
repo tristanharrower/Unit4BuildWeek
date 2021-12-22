@@ -1,11 +1,12 @@
 const Potluck = require('./potlucks_model')
 
 const express = require('express');
+const restricted = require('./potlucks_middleware');
 
 const router = express.Router();
 
 
-router.get('/', (req, res, next) => {
+router.get('/', restricted, (req, res, next) => {
     Potluck.getAllPotlucks()
     .then(potlucks => {
         res.status(200).json(potlucks)
@@ -16,7 +17,7 @@ router.get('/', (req, res, next) => {
   })
 
 
-router.post('/', (req, res, next) => {
+router.post('/', restricted, (req, res, next) => {
     Potluck.insertPotluck(req.body)
     .then(newPotluck => {
         res.status(201).json(newPotluck)
