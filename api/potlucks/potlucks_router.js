@@ -38,4 +38,17 @@ router.post('/', restricted, (req, res, next) => {
     })
   })
 
+  router.delete('/:id', (req, res, next) => {
+    Potluck.deleteById(req.params.id)
+    .then(() => {
+        res.status(200).json('Potluck Deleted!')
+    })
+    .catch(err => {
+        next(err)
+    })
+})
+
+
+
+
 module.exports = router

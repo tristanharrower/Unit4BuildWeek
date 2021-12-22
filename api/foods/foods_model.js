@@ -13,9 +13,12 @@ async function insertFood(food) {
 
       return potluck;
   }
-
+  function deleteById(food_id) {
+    return db('foods').where({food_id}).del()
+  }
 
   module.exports = {
       insertFood,
-      findBy
+      findBy,
+      deleteById
   }
