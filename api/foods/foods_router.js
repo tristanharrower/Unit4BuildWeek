@@ -5,8 +5,8 @@ const router = express.Router();
 
   router.post('/', (req, res, next) => {
     Foods.insertFood(req.body)
-    .then(neewFood => {
-        res.status(201).json(neewFood)
+    .then(newFood => {
+        res.status(201).json(newFood)
     })
     .catch(err => {
         next(err)
