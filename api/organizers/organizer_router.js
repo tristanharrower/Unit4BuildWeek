@@ -6,7 +6,8 @@ const router = express.Router();
 const Organizer = require('./organizers_model')
 const Potlucks = require('../potlucks/potlucks_model')
 const { BCRYPT_ROUNDS } = require('../../config')
-const {tokenBuilder} = require('./organizer_utilities')
+const {tokenBuilder} = require('./organizer_utilities');
+const restricted = require('../potlucks/potlucks_middleware');
 
 // TO-DO change create organizer to have a /register endpoint
 //TO_DO create a login endpoint for returning Organizers
@@ -14,7 +15,7 @@ const {tokenBuilder} = require('./organizer_utilities')
 //create endpoints and table for potluck that connects to organizer
 
 //get all organizers
-router.get('/', (req, res, next) => {
+router.get('/', restricted,  (req, res, next) => {
     Organizer.getAllOrganizers()
     .then(list => {
         res.status(200).json(list)
@@ -70,7 +71,7 @@ router.get('/', (req, res, next) => {
 
 
 //get organizer by organizer_id
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', restricted, async (req, res, next) => {
     const organizerId = {
         organizer_id:req.params.id
     }
@@ -84,7 +85,7 @@ router.get('/:id', async (req, res, next) => {
 })
 
 //get all potlucks from specific organizer
-router.get('/:id/potlucks', async (req, res, next) => {
+router.get('/:id/potlucks', restricted,  async (req, res, next) => {
     const organizerId = {
         organizer_id:req.params.id
     }
@@ -98,7 +99,7 @@ router.get('/:id/potlucks', async (req, res, next) => {
 })
 
   //delete an organizer by id
-  router.delete('/:id', async (req, res, next) => {
+  router.delete('/:id', restricted, async (req, res, next) => {
     Organizer.deleteById(req.params.id)
     .then(() => {
         res.status(200).json('Organizer successfully deleted')

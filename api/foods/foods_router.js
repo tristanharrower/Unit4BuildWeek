@@ -1,9 +1,10 @@
 const Foods = require('./foods_model')
 
 const express = require('express');
+const restricted = require('../potlucks/potlucks_middleware');
 const router = express.Router();
 
-  router.post('/', (req, res, next) => {
+  router.post('/', restricted, (req, res, next) => {
     Foods.insertFood(req.body)
     .then(newFood => {
         res.status(201).json(newFood)
@@ -13,7 +14,7 @@ const router = express.Router();
     })
   })
 
-  router.get('/:id', (req, res, next) => {
+  router.get('/:id', restricted, (req, res, next) => {
       const potluckFoods = {
           potluck_id:req.params.id
       }
@@ -26,7 +27,7 @@ const router = express.Router();
     })
   })
 
-  router.delete('/:id', (req, res, next) => {
+  router.delete('/:id', restricted, (req, res, next) => {
     Foods.deleteById(req.params.id)
     .then(() => {
         res.status(200).json('Food Deleted!')
