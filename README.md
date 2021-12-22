@@ -13,3 +13,15 @@
 |GET     | /organizers/:id/potlucks   | n/a    | potluck_id, organizer_id, event_name, description, event_date, event_time, location| gets all potlucks by organizer id  |
 |DELETE     | /organizers/:id   | n/a    | message: organizer successfully deleted | deletes an organizer based on id  |
 
+---
+
+## Potlucks API Endpoints
+|Method   | Endpoint      |Input    | Output  | Notes  |
+|------   | -----------   | ------- | ------- | ------ |
+|GET     | /potlucks   | n/a     | all potlucks| gets all potlucks   |
+|POST     | /potlucks   | organizer_id, event_name, description, event_date, event_time, location     | potluck_id, organizer_id, event_name, description, event_date, event_time, location| creates a potluck and connects to organizer   |
+|GET     | /potlucks/:id   | Header -> Authorization:token     | potluck_id, organizer_id, event_name, description, event_date, event_time, location| gets potluck by potluck ID   |
+
+
+
+
