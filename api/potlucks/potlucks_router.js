@@ -5,7 +5,6 @@ const restricted = require('./potlucks_middleware');
 
 const router = express.Router();
 
-
 router.get('/', restricted, (req, res, next) => {
     Potluck.getAllPotlucks()
     .then(potlucks => {
@@ -16,7 +15,6 @@ router.get('/', restricted, (req, res, next) => {
     })
   })
 
-
 router.post('/', restricted, (req, res, next) => {
     Potluck.insertPotluck(req.body)
     .then(newPotluck => {
@@ -26,7 +24,6 @@ router.post('/', restricted, (req, res, next) => {
         next(err)
     })
   })
-
 
   router.get('/:id', restricted, (req, res, next) => {
       const potluckId = {
@@ -40,15 +37,5 @@ router.post('/', restricted, (req, res, next) => {
         next(err)
     })
   })
-
-
-
-
-
-
-
-
-
-
 
 module.exports = router
