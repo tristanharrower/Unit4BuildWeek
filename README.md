@@ -26,9 +26,9 @@
 ## Foods API Endpoints
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
-|POST     | /foods   | Header -> Authorization:token Body -> potluck_id, food_wanted     |food_id, potluck_id, food_wanted | creates new food for specific potluck|
-|GET     | /foods/:id   | Header -> Authorization:token    |list of foods for that specific potluck| The id in the url corresponds to the potluck_i, :id=potluck_id  |
-|DELETE     | /foods/:id   | Header -> Authorization:token | 'Food Deleted!'| deletes food item, :id=food_id  |
+|POST     | /organizers/:id/potlucks/:potluckid/foods   | Header -> Authorization:token Body -> potluck_id, food_wanted     |food_id, potluck_id, food_wanted | creates new food for specific potluck|
+|GET     | /organizers/:id/potlucks/:potluckid/foods/:id   | Header -> Authorization:token    |list of foods for that specific potluck| The id in the url corresponds to the potluck_i, :id=potluck_id  |
+|DELETE     | /organizers/:id/potlucks/:potluckid/foods/:id   | Header -> Authorization:token | 'Food Deleted!'| deletes food item, :id=food_id  |
 
 
 
