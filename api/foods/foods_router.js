@@ -21,7 +21,7 @@ const router = express.Router({mergeParams: true});
   //get all foods for a specific potluck
   router.get('/', restricted, (req, res, next) => {
       const potluckFoods = {
-          potluck_id:req.params.id
+          potluck_id:req.params.potluckid
       }
     Foods.findBy(potluckFoods)
     .then(list => {
