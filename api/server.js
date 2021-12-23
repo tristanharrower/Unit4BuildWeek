@@ -2,9 +2,9 @@ const express = require('express')
 const helmet = require('helmet')
 const cors = require('cors')
 
-const organizerRouter = require('../api/organizers/organizer_router');
-const potlucksRouter = require('../api/potlucks/potlucks_router')
-const foodsRouter = require('../api/foods/foods_router');
+const organizerRouter = require('./organizers/organizer_auth/organizer_router');
+const potlucksRouter = require('./organizers/potlucks/potlucks_router')
+const foodsRouter = require('./organizers/foods/foods_router');
 
 //starter middlwares
 const server = express()
