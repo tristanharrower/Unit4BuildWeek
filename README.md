@@ -7,8 +7,8 @@
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
 |GET     | /organizers   | Header -> Authorization : token    | gets all organizers|   |
-|POST     | /organizers/register   | username, password    | organizer_id, username, password| creates and returns a new organizer   |
-|POST     | /organizers/login   | username, password    | organizer_id, username, password, token| logs in an organizer and sends back JWT token  |
+|POST     | /organizers/register   | Body -> username, password    | organizer_id, username, password| creates and returns a new organizer   |
+|POST     | /organizers/login   | Body -> username, password    | organizer_id, username, password, token| logs in an organizer and sends back JWT token  |
 |GET     | /organizers/:id   | Header -> Authorization : token   | organizer_id, username, password| gets organizer by id, :id=organizer_id  |
 |GET     | /organizers/:id/potlucks   | Header -> Authorization : token    | potluck_id, organizer_id, event_name, description, event_date, event_time, location| gets all potlucks by organizer id, :id=organizer_id  |
 |DELETE     | /organizers/:id   | Header -> Authorization : token  | message: organizer successfully deleted | deletes an organizer based on id, :id=organizer_id  |
