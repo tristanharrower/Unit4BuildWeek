@@ -16,19 +16,19 @@
 ## Potlucks API Endpoints
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
-|POST     | /organizers/:id/potlucks   | Header -> Authorization : token, Body -> event_name, description, event_date, event_time, location     |potluck_id, organizer_id, event_name, description, event_date, event_time, location| creates a potluck and connects to an organizer using organizer_id in request body   |
+|POST     | /organizers/:id/potlucks   | Header -> Authorization : token, Body -> event_name, description, event_date, event_time, location     |potluck_id, organizer_id, event_name, description, event_date, event_time, location| creates a potluck for specific organizer, :id=organizer_id|
 |GET     | /organizers/:id/potlucks   | Header -> Authorization : token    | potluck_id, organizer_id, event_name, description, event_date, event_time, location| gets all potlucks from an organizer, :id=organizer_id  |
-|GET     | /organizers/:id/potlucks/:potluckid   | Header -> Authorization:token     | potluck_id, organizer_id, event_name, description, event_date, event_time, location| gets potluck by potluck ID, :id=potluck_id   |
-|DELETE     | /organizers/:id/potlucks/:potluckid   |  Header -> Authorization:token     | 'Potluck Deleted!'| deletes potluck, :id=potluck_id  |
+|GET     | /organizers/:id/potlucks/:potluckid   | Header -> Authorization:token     | potluck_id, organizer_id, event_name, description, event_date, event_time, location| gets single potluck by potluck ID, :id=potluck_id   |
+|DELETE     | /organizers/:id/potlucks/:potluckid   |  Header -> Authorization:token     | 'Potluck Deleted!'| deletes single potluck, :id=organizer_id  |
 
 ---
 
 ## Foods API Endpoints
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
-|POST     | /organizers/:id/potlucks/:potluckid/foods   | Header -> Authorization:token Body -> food_wanted     |food_id, potluck_id, food_wanted | creates new food for specific potluck|
-|GET     | /organizers/:id/potlucks/:potluckid/foods/:foodid   | Header -> Authorization:token    |list of foods for that specific potluck| The id in the url corresponds to the potluck_i, :id=potluck_id  |
-|DELETE     | /organizers/:id/potlucks/:potluckid/foods/:foodid   | Header -> Authorization:token | 'Food Deleted!'| deletes food item, :id=food_id  |
+|POST     | /organizers/:id/potlucks/:potluckid/foods   | Header -> Authorization:token Body -> food_wanted |food_id, potluck_id, food_wanted | creates new food for a single potluck, :id=organizer_id|
+|GET     | /organizers/:id/potlucks/:potluckid/foods   | Header -> Authorization:token    |list of foods for a single potluck| :id=organizer_id |
+|DELETE     | /organizers/:id/potlucks/:potluckid/foods/:foodid   | Header -> Authorization:token | 'Food Deleted!'| deletes a single food item, :id=food_id  |
 
 
 
