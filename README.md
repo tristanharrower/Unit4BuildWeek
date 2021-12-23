@@ -7,7 +7,7 @@
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
 |GET     | /organizers   | Header -> Authorization : token    | gets all organizers|   |
-|POST     | /organizers/register   | Body -> username, password    | organizer_id, username, password| creates and returns a new organizer   |
+|POST     | /organizers/register   | Body -> username, password    | organizer_id, username, password| registers and returns a new organizer   |
 |POST     | /organizers/login   | Body -> username, password    | organizer_id, username, password, token| logs in an organizer and sends back JWT token  |
 |GET     | /organizers/:id   | Header -> Authorization : token   | organizer_id, username, password| gets organizer by id, :id=organizer_id  |
 |GET     | /organizers/:id/potlucks   | Header -> Authorization : token    | potluck_id, organizer_id, event_name, description, event_date, event_time, location| gets all potlucks by organizer id, :id=organizer_id  |
