@@ -8,10 +8,6 @@ async function insertPotluck(potluck) {
     return newPotluck 
   }
 
-  async function getAllPotlucks() {
-    return db('potlucks')
-  }
-
   async function findBy(filter) {
     const potluck = await db("potlucks")
       .select('potluck_id',  'organizer_id', 'event_name', 'description',
