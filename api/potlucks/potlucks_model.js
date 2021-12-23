@@ -22,7 +22,6 @@ async function insertPotluck(potluck) {
 
   module.exports = {
       insertPotluck,
-      getAllPotlucks,
       findBy, 
       deleteById
   }

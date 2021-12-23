@@ -3,10 +3,15 @@ const Potluck = require('./potlucks_model')
 const express = require('express');
 const restricted = require('./potlucks_middleware');
 
-const router = express.Router();
+const router = express.Router({mergeParams: true});
 
+//create a new potluck for an organizer
 router.post('/', restricted, (req, res, next) => {
-    Potluck.insertPotluck(req.body)
+    const requestPotluck = {
+        organizer_id:req.params.id,
+        ...req.body
+    }
+    Potluck.insertPotluck(requestPotluck)
     .then(newPotluck => {
         res.status(201).json(newPotluck)
     })
@@ -15,9 +20,24 @@ router.post('/', restricted, (req, res, next) => {
     })
   })
 
-  router.get('/:id', restricted, (req, res, next) => {
+    //get all potlucks from specific organizer
+router.get('/', restricted,  async (req, res, next) => {
+    const organizerId = {
+        organizer_id:req.params.id
+    }
+    Potluck.findBy(organizerId)
+    .then(potluck => {
+        res.status(200).json(potluck)
+    })
+    .catch(err => {
+        next(err)
+    })
+})
+
+//get specific potluck by potluck id
+  router.get('/:potluckid', restricted, (req, res, next) => {
       const potluckId = {
-        potluck_id: req.params.id
+        potluck_id: req.params.potluckid
       }
     Potluck.findBy(potluckId)
     .then(potentialPotluck => {
@@ -28,22 +48,10 @@ router.post('/', restricted, (req, res, next) => {
     })
   })
 
-  //get all potlucks from specific organizer
-router.get('/:id/potlucks', restricted,  async (req, res, next) => {
-    const organizerId = {
-        organizer_id:req.params.id
-    }
-    Potluck.findBy(organizerId)
-    .then(org => {
-        res.status(200).json(org)
-    })
-    .catch(err => {
-        next(err)
-    })
-})
 
-  router.delete('/:id', restricted, (req, res, next) => {
-    Potluck.deleteById(req.params.id)
+  //delete specific potluck
+  router.delete('/:potluckid', restricted, (req, res, next) => {
+    Potluck.deleteById(req.params.potluckid)
     .then(() => {
         res.status(200).json('Potluck Deleted!')
     })
