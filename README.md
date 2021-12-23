@@ -19,7 +19,7 @@
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
 |GET     | /potlucks   | Header -> Authorization : token    | all potlucks| gets all potlucks   |
-|POST     | /potlucks   | Header -> Authorization : token, Body -> organizer_id, event_name, description, event_date, event_time, location     |potluck_id, organizer_id, event_name, description, event_date, event_time, location| creates a potluck and connects to organizer using organizer_id in request body   |
+|POST     | /potlucks   | Header -> Authorization : token, Body -> organizer_id, event_name, description, event_date, event_time, location     |potluck_id, organizer_id, event_name, description, event_date, event_time, location| creates a potluck and connects to an organizer using organizer_id in request body   |
 |GET     | /potlucks/:id   | Header -> Authorization:token     | potluck_id, organizer_id, event_name, description, event_date, event_time, location| gets potluck by potluck ID, :id=potluck_id   |
 |DELETE     | /potlucks/:id   |  Header -> Authorization:token     | 'Potluck Deleted!'| deletes potluck, :id=potluck_id  |
 
