@@ -33,5 +33,44 @@
 |DELETE     | /organizers/:id/potlucks/:potluckid/foods/:foodid   | Header -> Authorization:token | 'Food Deleted!'| deletes a single food item, :id=food_id  |
 
 
+## Meet The Team
+
+Brittany Petersen Front End React I Engineer
+
+Github: https://github.com/BrittanyPete
+
+LinkedIn: https://www.linkedin.com/in/brittany-petersen2021/
+
+Jorge Evangelista Front End React I Engineer
+
+Github: https://github.com/JorgeEvangelista500
+
+LinkedIn: https://www.linkedin.com/in/jorge-evangelista/
+
+Yuriko Takamiya Front End React I Engineer
+
+Github: https://github.com/yuririnnnu
+
+LinkedIn: https://www.linkedin.com/in/yuriko-takamiya/
+
+Shivneel Prasad Front End Architect React II Engineer
+
+Github: https://github.com/Shivneel-Prasad
+
+LinkedIn: https://www.linkedin.com/in/shivneel-s-prasad/
+
+Safia Omar Front End Architect React II Engineer
+
+Github: https://github.com/SafiaOmar
+
+LinkedIn: https://www.linkedin.com/in/safia-omar-913284221/
+
+Tristan Harrower Backend Engineer
+
+Github: https://github.com/tristanharrower
+
+LinkedIn: https://www.linkedin.com/in/tristan-harrower-a8b0b5185/
+
+
 
 
