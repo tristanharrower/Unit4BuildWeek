@@ -4,7 +4,7 @@ const express = require('express')
 const router = express.Router();
 
 const Organizer = require('./organizers_model')
-const { BCRYPT_ROUNDS } = require('../../../config')
+const { BCRYPT_ROUNDS } = require('../../config')
 const {tokenBuilder} = require('./organizer_utilities');
 const restricted = require('../potlucks/potlucks_middleware');
 
