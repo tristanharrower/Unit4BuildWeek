@@ -15,7 +15,7 @@ server.use(cors())
 //routers as middleware
 server.use('/organizers', organizerRouter);
 server.use('/organizers/:id/potlucks', potlucksRouter)
-server.use('/organizers/:id/potlucks/:potluckid/foods', foodsRouter)
+server.use('/potlucks/:potluckid/foods', foodsRouter)
 
 //sanity check
 server.get('/', async (req, res) => {

@@ -15,7 +15,7 @@
 
 ---
 
-## Potlucks API Endpoints
+## Organizer Potlucks API Endpoints
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
 |POST     | /organizers/:id/potlucks   | Header -> Authorization : token, Body -> event_name, description, event_date, event_time, location     |potluck_id, organizer_id, event_name, description, event_date, event_time, location| creates a potluck for specific organizer|
@@ -25,12 +25,12 @@
 
 ---
 
-## Foods API Endpoints
+## Potluck Foods API Endpoints
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
-|POST     | /organizers/:id/potlucks/:potluckid/foods   | Header -> Authorization:token Body -> food_wanted |food_id, potluck_id, food_wanted | creates new food for a single potluck |
-|GET     | /organizers/:id/potlucks/:potluckid/foods   | Header -> Authorization:token    |list of foods for a single potluck| |
-|DELETE     | /organizers/:id/potlucks/:potluckid/foods/:foodid   | Header -> Authorization:token | 'Food Deleted!'| deletes a single food item |
+|POST     | /potlucks/:potluckid/foods   | Header -> Authorization:token Body -> food_wanted |food_id, potluck_id, food_wanted | creates new food for a single potluck |
+|GET     | /potlucks/:potluckid/foods   | Header -> Authorization:token    |list of foods for a single potluck| |
+|DELETE     | /potlucks/:potluckid/foods/:foodid   | Header -> Authorization:token | 'Food Deleted!'| deletes a single food item |
 
 
 ## Meet The Team
