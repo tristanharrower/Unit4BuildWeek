@@ -14,7 +14,6 @@ exports.up = async (knex) => {
       guests.string('password', 200).notNullable()
       guests.timestamps(false, true)
     })
-
     await knex.schema
       .createTable('potlucks', (potlucks) => {
         potlucks.increments('potluck_id')
