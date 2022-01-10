@@ -5,10 +5,22 @@ const restricted = require('../potlucks/potlucks_middleware');
 const router = express.Router({mergeParams: true});
 
   router.post('/', restricted, (req, res, next) => {
-    const food = {
-        potluck_id:req.params.potluckid,
-        food_wanted: req.body.food_wanted
-    }
+      let food = {};
+    
+    if(req.body.organizer_id){
+        food = {
+            potluck_id:req.params.potluckid,
+            food_wanted: req.body.food_wanted, 
+            organizer_id:req.body.organizer_id
+        }
+      } else {
+        food = {
+            potluck_id:req.params.potluckid,
+            food_wanted: req.body.food_wanted, 
+            guest_id:req.body.guest_id
+        }
+      }
+    
     Foods.insertFood(food)
     .then(newFood => {
         res.status(201).json(newFood)
