@@ -6,6 +6,11 @@ async function insertOrganizer(organizer) {
     return newOrganizer 
   }
 
+  async function insertGuest(guest){
+    const [newGuest] = await db('guests').insert(guest, ['guest_id', 'username', 'password'])
+    return newGuest 
+  }
+
   function deleteById(organizer_id) {
     return db('organizers').where({organizer_id}).del()
   }
@@ -20,6 +25,7 @@ async function insertOrganizer(organizer) {
 
 module.exports = {
     insertOrganizer,
+    insertGuest,
     deleteById,
     findBy
 }

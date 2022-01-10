@@ -2,7 +2,7 @@ const express = require('express')
 const helmet = require('helmet')
 const cors = require('cors')
 
-const organizerRouter = require('./organizer_auth/organizer_router');
+const organizerRouter = require('./auth/organizer_router');
 const potlucksRouter = require('./potlucks/potlucks_router')
 const foodsRouter = require('./foods/foods_router');
 
