@@ -1,7 +1,7 @@
 const Foods = require('./foods_model')
 
 const express = require('express');
-const restricted = require('../potlucks/potlucks_middleware');
+const {restricted} = require('../auth/auth_middleware');
 const router = express.Router({mergeParams: true});
 
   router.post('/', restricted, (req, res, next) => {

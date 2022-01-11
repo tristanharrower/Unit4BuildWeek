@@ -7,7 +7,7 @@ async function insertFood(food) {
 
   async function findBy(filter) {
     const potluck = await db("foods")
-      .select('food_id', 'potluck_id', 'food_wanted')
+      .select('food_id', 'potluck_id', 'person_id', 'food_wanted')
       .where(filter)
 
       return potluck;

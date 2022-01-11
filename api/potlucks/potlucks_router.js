@@ -1,7 +1,7 @@
 const Potluck = require('./potlucks_model')
 
 const express = require('express');
-const restricted = require('./potlucks_middleware');
+const {restricted} = require('../auth/auth_middleware');
 
 const router = express.Router({mergeParams: true});
 
