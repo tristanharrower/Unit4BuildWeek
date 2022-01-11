@@ -2,7 +2,7 @@
 
 ## Deployed URL (root URL): https://lambda-build-week.herokuapp.com
 
-## Front-End URL: https://potluck-planner-007.herokuapp.com/
+## Front-End URL: https://potluck-planner-client.herokuapp.com
 ---
 ## Auth API Endpoints
 
