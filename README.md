@@ -4,24 +4,22 @@
 
 ## Front-End URL: https://potluck-planner-007.herokuapp.com/
 ---
-## Organizer API Endpoints
+## Auth API Endpoints
 
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
-|POST     | /organizers/register   | Body -> username, password    | organizer_id, username, password| registers and returns a new organizer   |
-|POST     | /organizers/login   | Body -> username, password    | organizer_id, username, password, token| logs in an organizer and sends back JWT token  |
-|GET     | /organizers/:id   | Header -> Authorization : token   | organizer_id, username, password| gets organizer by id,   |
-|DELETE     | /organizers/:id   | Header -> Authorization : token  | message: organizer successfully deleted | deletes an organizer based on id  |
+|POST     | /authorization/register   | Body -> username, password    | person_id, username, password| registers and returns a new organizer   |
+|POST     | /authorization/login   | Body -> username, password    | person_id, username, password, token| logs in an organizer and sends back JWT token  |
 
 ---
 
-## Organizer Potlucks API Endpoints
+## Potlucks API Endpoints
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
-|POST     | /organizers/:id/potlucks   | Header -> Authorization : token, Body -> event_name, description, event_date, event_time, location     |potluck_id, organizer_id, event_name, description, event_date, event_time, location| creates a potluck for specific organizer|
-|GET     | /organizers/:id/potlucks   | Header -> Authorization : token    | potluck_id, organizer_id, event_name, description, event_date, event_time, location| gets all potlucks from an organizer |
-|GET     | /organizers/:id/potlucks/:potluckid   | Header -> Authorization:token     | potluck_id, organizer_id, event_name, description, event_date, event_time, location| gets single potluck by potluck ID |
-|DELETE     | /organizers/:id/potlucks/:potluckid   |  Header -> Authorization:token     | 'Potluck Deleted!'| deletes single potluck  |
+|POST     | /user/:id/potlucks   | Header -> Authorization : token, Body -> event_name, description, event_date, event_time, location     |potluck_id, person_id, event_name, description, event_date, event_time, location| creates a potluck for a specific organizer|
+|GET     | /user/:id/potlucks   | Header -> Authorization : token    | potluck_id, person_id, event_name, description, event_date, event_time, location| gets all potlucks from an organizer |
+|GET     | /user/:id/potlucks/:potluckid   | Header -> Authorization:token     | potluck_id, person_id, event_name, description, event_date, event_time, location| gets single potluck by potluck ID |
+|DELETE     | /user/:id/potlucks/:potluckid   |  Header -> Authorization:token     | 'Potluck Deleted!'| deletes single potluck  |
 
 ---
 
@@ -31,6 +29,13 @@
 |POST     | /potlucks/:potluckid/foods   | Header -> Authorization:token Body -> food_wanted |food_id, potluck_id, food_wanted | creates new food for a single potluck |
 |GET     | /potlucks/:potluckid/foods   | Header -> Authorization:token    |food_id,potluck_id, food_wanted | list of foods for a single potluck|
 |DELETE     | /potlucks/:potluckid/foods/:foodid   | Header -> Authorization:token | 'Food Deleted!'| deletes a single food item |
+
+## User API Endpoints
+|Method   | Endpoint      |Request    | Response  | Notes  |
+|------   | -----------   | ------- | ------- | ------ |
+|GET     | /user/:id   | Header -> Authorization:token  |person_id, username, password | returns a single user's information by id|
+|DELETE     | /user/:id   | Header -> Authorization:token  | 1 if deleted, 0 if not | deletes a user by id|
+
 
 
 ## Meet The Team
