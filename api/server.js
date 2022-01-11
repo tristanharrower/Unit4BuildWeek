@@ -3,6 +3,7 @@ const helmet = require('helmet')
 const cors = require('cors')
 
 const authorizationRouter = require('./auth/auth_router');
+const userRouter = require('./user/user_router');
 const potlucksRouter = require('./potlucks/potlucks_router')
 const foodsRouter = require('./foods/foods_router');
 
@@ -14,6 +15,7 @@ server.use(cors())
 
 //routers as middleware
 server.use('/authorization', authorizationRouter);
+server.use('/user', userRouter);
 server.use('/user/:id/potlucks', potlucksRouter)
 server.use('/potlucks/:potluckid/foods', foodsRouter)
 

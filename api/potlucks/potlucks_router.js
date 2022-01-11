@@ -8,7 +8,7 @@ const router = express.Router({mergeParams: true});
 //create a new potluck for an organizer
 router.post('/', restricted, (req, res, next) => {
     const requestPotluck = {
-        organizer_id:req.params.id,
+        person_id:req.params.id,
         ...req.body
     }
     Potluck.insertPotluck(requestPotluck)
@@ -22,10 +22,10 @@ router.post('/', restricted, (req, res, next) => {
 
     //get all potlucks from specific organizer
 router.get('/', restricted,  async (req, res, next) => {
-    const organizerId = {
-        organizer_id:req.params.id
+    const personId = {
+        person_id:req.params.id
     }
-    Potluck.findBy(organizerId)
+    Potluck.findBy(personId)
     .then(potluck => {
         res.status(200).json(potluck)
     })

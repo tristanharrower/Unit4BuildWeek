@@ -1,18 +1,15 @@
 const db = require('../data/db-config');
 
 
-async function insert(organizer) {
-    const [newOrganizer] = await db('organizers').insert(organizer, ['organizer_id', 'username', 'password'])
-    return newOrganizer 
+async function insert(user) {
+    const [newUser] = await db('person').insert(user, ['person_id', 'username', 'password'])
+    return newUser 
   }
 
-  function deleteById(organizer_id) {
-    return db('organizers').where({organizer_id}).del()
-  }
 
   async function findBy(filter) {
-    const org = await db("organizers")
-      .select("organizer_id", "username","password")
+    const org = await db("person")
+      .select("person_id", "username","password")
       .where(filter)
 
       return org;
@@ -20,6 +17,5 @@ async function insert(organizer) {
 
 module.exports = {
     insert,
-    deleteById,
     findBy
 }

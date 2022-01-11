@@ -8,7 +8,7 @@ const router = express.Router({mergeParams: true});
         const food = {
             potluck_id:req.params.potluckid,
             food_wanted: req.body.food_wanted, 
-            user_id:req.body.user_id
+            person_id:req.body.person_id
         }
     
     Foods.insertFood(food)
