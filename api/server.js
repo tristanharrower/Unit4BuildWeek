@@ -2,7 +2,7 @@ const express = require('express')
 const helmet = require('helmet')
 const cors = require('cors')
 
-const organizerRouter = require('./auth/auth_router');
+const authorizationRouter = require('./auth/auth_router');
 const potlucksRouter = require('./potlucks/potlucks_router')
 const foodsRouter = require('./foods/foods_router');
 
@@ -13,7 +13,7 @@ server.use(helmet())
 server.use(cors())
 
 //routers as middleware
-server.use('/organizers', organizerRouter);
+server.use('/authorization', authorizationRouter);
 server.use('/organizers/:id/potlucks', potlucksRouter)
 server.use('/potlucks/:potluckid/foods', foodsRouter)
 

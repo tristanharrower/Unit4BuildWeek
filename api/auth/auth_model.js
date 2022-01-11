@@ -1,14 +1,9 @@
 const db = require('../data/db-config');
 
 
-async function insertOrganizer(organizer) {
+async function insert(organizer) {
     const [newOrganizer] = await db('organizers').insert(organizer, ['organizer_id', 'username', 'password'])
     return newOrganizer 
-  }
-
-  async function insertGuest(guest){
-    const [newGuest] = await db('guests').insert(guest, ['guest_id', 'username', 'password'])
-    return newGuest 
   }
 
   function deleteById(organizer_id) {
@@ -24,8 +19,7 @@ async function insertOrganizer(organizer) {
   }
 
 module.exports = {
-    insertOrganizer,
-    insertGuest,
+    insert,
     deleteById,
     findBy
 }

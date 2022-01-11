@@ -6,9 +6,8 @@ const router = express.Router();
 const User = require('./auth_model')
 const { BCRYPT_ROUNDS } = require('../../config')
 const {tokenBuilder} = require('./auth_utilities');
-const restricted = require('../potlucks/potlucks_middleware');
 
-  //register a new organizer
+  //register a new user
   router.post('/register', async (req, res, next) => {
 
     const newUser = {
@@ -20,23 +19,13 @@ const restricted = require('../potlucks/potlucks_middleware');
     
     newUser.password = hash
 
-    if(req.body.role === "organizer"){
-        User.insertOrganizer(newUser)
+    User.insert(newUser)
      .then(org => {
          res.status(201).json(org)
      })
      .catch(err => {
          next(err)
      })
-    } else {
-        User.insertGuest(newUser)
-        .then(org => {
-            res.status(201).json(org)
-        })
-        .catch(err => {
-            next(err)
-        })
-    }
       
   })
 
@@ -62,35 +51,6 @@ const restricted = require('../potlucks/potlucks_middleware');
     })
     .catch(next)
 })
-
-
-//get organizer by organizer_id
-router.get('/:id', restricted, async (req, res, next) => {
-    const organizerId = {
-        organizer_id:req.params.id
-    }
-    User.findBy(organizerId)
-    .then(org => {
-        res.status(200).json(org)
-    })
-    .catch(err => {
-        next(err)
-    })
-})
-
-
-
-  //delete an organizer by id
-  router.delete('/:id', restricted, async (req, res, next) => {
-    User.deleteById(req.params.id)
-    .then(() => {
-        res.status(200).json('Organizer successfully deleted')
-    })
-    .catch(err => {
-        next(err)
-    })
-})
-
 
 
 module.exports = router
