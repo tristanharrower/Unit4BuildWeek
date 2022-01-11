@@ -13,6 +13,14 @@
 
 ---
 
+## User API Endpoints
+|Method   | Endpoint      |Request    | Response  | Notes  |
+|------   | -----------   | ------- | ------- | ------ |
+|GET     | /user/:id   | Header -> Authorization:token  |person_id, username, password | returns a single user's information by id|
+|DELETE     | /user/:id   | Header -> Authorization:token  | 1 if deleted, 0 if not | deletes a user by id|
+
+---
+
 ## Potlucks API Endpoints
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
@@ -29,13 +37,6 @@
 |POST     | /potlucks/:potluckid/foods   | Header -> Authorization:token Body -> food_wanted |food_id, potluck_id, food_wanted | creates new food for a single potluck |
 |GET     | /potlucks/:potluckid/foods   | Header -> Authorization:token    |food_id,potluck_id, food_wanted | list of foods for a single potluck|
 |DELETE     | /potlucks/:potluckid/foods/:foodid   | Header -> Authorization:token | 'Food Deleted!'| deletes a single food item |
-
-## User API Endpoints
-|Method   | Endpoint      |Request    | Response  | Notes  |
-|------   | -----------   | ------- | ------- | ------ |
-|GET     | /user/:id   | Header -> Authorization:token  |person_id, username, password | returns a single user's information by id|
-|DELETE     | /user/:id   | Header -> Authorization:token  | 1 if deleted, 0 if not | deletes a user by id|
-
 
 
 ## Meet The Team
