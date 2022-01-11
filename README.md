@@ -21,7 +21,7 @@
 
 ---
 
-## Potlucks API Endpoints
+## User Potlucks API Endpoints
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
 |POST     | /user/:id/potlucks   | Header -> Authorization : token, Body -> event_name, description, event_date, event_time, location     |potluck_id, person_id, event_name, description, event_date, event_time, location| creates a potluck for a specific user|
@@ -46,6 +46,11 @@ Tristan Harrower Frontend and Backend Engineer
 Github: https://github.com/tristanharrower
 
 LinkedIn: https://www.linkedin.com/in/tristan-harrower-a8b0b5185/
+
+To-do
+
+Create table for users to save potlucks they want to attend.  potluck_id, person_id, username.
+Create api endpoint to retrieve all people attending a potluck.  /potluck/:potluckid/users
 
 
 
