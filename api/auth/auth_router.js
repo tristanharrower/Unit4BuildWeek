@@ -3,9 +3,9 @@ const bcrypt = require('bcryptjs')
 const express = require('express')
 const router = express.Router();
 
-const User = require('./organizers_model')
+const User = require('./auth_model')
 const { BCRYPT_ROUNDS } = require('../../config')
-const {tokenBuilder} = require('./utilities');
+const {tokenBuilder} = require('./auth_utilities');
 const restricted = require('../potlucks/potlucks_middleware');
 
   //register a new organizer
