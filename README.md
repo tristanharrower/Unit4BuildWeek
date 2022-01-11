@@ -16,7 +16,9 @@
 ## User API Endpoints
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
+|GET     | /user/  | Header -> Authorization:token  |person_id, username, password, created_at, updated_at | returns a list of all user's|
 |GET     | /user/:id   | Header -> Authorization:token  |person_id, username, password | returns a single user's information by id|
+|PUT     | /user/:id   | Header -> Authorization:token  |person_id, username, password | updates a user by person_id|
 |DELETE     | /user/:id   | Header -> Authorization:token  | 1 if deleted, 0 if not | deletes a user by id|
 
 ---
@@ -27,6 +29,7 @@
 |POST     | /user/:id/potlucks   | Header -> Authorization : token, Body -> event_name, description, event_date, event_time, location     |potluck_id, person_id, event_name, description, event_date, event_time, location| creates a potluck for a specific user|
 |GET     | /user/:id/potlucks   | Header -> Authorization : token    | potluck_id, person_id, event_name, description, event_date, event_time, location| gets all potlucks from a user |
 |GET     | /user/:id/potlucks/:potluckid   | Header -> Authorization:token     | potluck_id, person_id, event_name, description, event_date, event_time, location| gets single potluck by potluck ID |
+|PUT     | /user/:id/potlucks/:potluckid   |  Header -> Authorization:token     | potluck_id, person_id, event_name, description, event_date, event_time, location| updates potluck by potluck_id  |
 |DELETE     | /user/:id/potlucks/:potluckid   |  Header -> Authorization:token     | 'Potluck Deleted!'| deletes single potluck  |
 
 ---
@@ -36,6 +39,7 @@
 |------   | -----------   | ------- | ------- | ------ |
 |POST     | /potlucks/:potluckid/foods   | Header -> Authorization:token Body -> food_wanted |food_id, potluck_id, food_wanted | creates new food for a single potluck |
 |GET     | /potlucks/:potluckid/foods   | Header -> Authorization:token    |food_id,potluck_id, food_wanted | list of foods for a single potluck|
+|PUT     | /potlucks/:potluckid/foods/:foodsid   | Header -> Authorization:token    |food_id,potluck_id, person_id, food_wanted | updates food by food_id|
 |DELETE     | /potlucks/:potluckid/foods/:foodid   | Header -> Authorization:token | 'Food Deleted!'| deletes a single food item |
 
 

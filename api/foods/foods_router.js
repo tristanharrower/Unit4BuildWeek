@@ -34,7 +34,7 @@ const router = express.Router({mergeParams: true});
     })
   })
 
-  router.put('/:foodid', restricted, (req, res, next) => {
+ router.put('/:foodid', restricted, (req, res, next) => {
     const updateFood = {
         food_id:req.params.foodid, 
         potluck_id:req.params.potluckid,
