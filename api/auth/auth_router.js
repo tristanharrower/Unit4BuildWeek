@@ -5,10 +5,11 @@ const router = express.Router();
 
 const User = require('./auth_model')
 const { BCRYPT_ROUNDS } = require('../../config')
-const {tokenBuilder} = require('./auth_utilities');
+const {tokenBuilder, usernameCheck} = require('./auth_middleware');
+
 
   //register a new user
-  router.post('/register', async (req, res, next) => {
+  router.post('/register', usernameCheck, (req, res, next) => {
 
     const newUser = {
         username:req.body.username,

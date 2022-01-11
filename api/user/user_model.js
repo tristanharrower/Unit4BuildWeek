@@ -13,9 +13,14 @@ function deleteById(person_id) {
     return db('person').where({person_id}).del()
   }
 
+  async function getAll(){
+    return db('person');
+  }
+
 
 module.exports = {
     findBy,
-    deleteById
+    deleteById, 
+    getAll
     
 }

@@ -5,7 +5,7 @@ const restricted = require('./potlucks_middleware');
 
 const router = express.Router({mergeParams: true});
 
-//create a new potluck for an organizer
+//create a new potluck for a user
 router.post('/', restricted, (req, res, next) => {
     const requestPotluck = {
         person_id:req.params.id,
@@ -20,7 +20,7 @@ router.post('/', restricted, (req, res, next) => {
     })
   })
 
-    //get all potlucks from specific organizer
+    //get all potlucks from specific user
 router.get('/', restricted,  async (req, res, next) => {
     const personId = {
         person_id:req.params.id

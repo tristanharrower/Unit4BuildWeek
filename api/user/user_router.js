@@ -4,8 +4,22 @@ const router = express.Router();
 
 const User = require('./user_model')
 
-router.get('/:id', async (req, res, next) => {
 
+//returns all users
+router.get('/', async (req, res, next) => {
+
+    User.getAll()
+     .then(users => {
+         res.status(201).json(users)
+     })
+     .catch(err => {
+         next(err)
+     })
+      
+  })
+
+//returns a single user by id
+router.get('/:id', async (req, res, next) => {
     const potentialUser = {
         person_id:req.params.id
     }
@@ -20,6 +34,8 @@ router.get('/:id', async (req, res, next) => {
       
   })
 
+
+  //deletes a user by id
   router.delete('/:id', async (req, res, next) => {
 
 
