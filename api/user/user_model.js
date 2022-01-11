@@ -13,14 +13,22 @@ function deleteById(person_id) {
     return db('person').where({person_id}).del()
   }
 
-  async function getAll(){
+  async function getAllUsers(){
     return db('person');
   }
+
+  
+  function update(id, changes) {
+    return db('person')
+      .where({ person_id:id })
+      .update(changes, ['person_id', 'username', 'password']);
+  }
+
 
 
 module.exports = {
     findBy,
     deleteById, 
-    getAll
-    
+    getAllUsers,
+    update
 }

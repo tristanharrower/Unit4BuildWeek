@@ -12,6 +12,12 @@ async function insertFood(food) {
 
       return potluck;
   }
+  function update(id, changes) {
+    return db('foods')
+      .where({ food_id:id })
+      .update(changes, '*');
+  }
+
   function deleteById(food_id) {
     return db('foods').where({food_id}).del()
   }
@@ -19,5 +25,6 @@ async function insertFood(food) {
   module.exports = {
       insertFood,
       findBy,
+      update,
       deleteById
   }

@@ -34,6 +34,22 @@ const router = express.Router({mergeParams: true});
     })
   })
 
+  router.put('/:foodid', restricted, (req, res, next) => {
+    const updateFood = {
+        food_id:req.params.foodid, 
+        potluck_id:req.params.potluckid,
+        person_id:req.body.person_id,
+        food_wanted:req.body.food_wanted
+    }
+  Foods.update(req.params.foodid, updateFood)
+  .then(list => {
+      res.status(200).json(list)
+  })
+  .catch(err => {
+      next(err)
+  })
+})
+
   router.delete('/:foodid', restricted, (req, res, next) => {
     Foods.deleteById(req.params.foodid)
     .then(() => {

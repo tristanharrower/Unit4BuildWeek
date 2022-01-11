@@ -1,8 +1,11 @@
+const bcrypt = require('bcryptjs')
 const express = require('express')
 const router = express.Router();
 
+const { BCRYPT_ROUNDS } = require('../../config')
+
 //middlewares and model
-const {restricted} = require('../auth/auth_middleware');
+const {restricted, usernameCheck} = require('../auth/auth_middleware');
 const User = require('./user_model');
 
 
@@ -10,7 +13,7 @@ const User = require('./user_model');
 
 router.get('/', restricted,(req, res, next) => {
 
-    User.getAll()
+    User.getAllUsers()
      .then(users => {
          res.status(201).json(users)
      })
@@ -34,8 +37,26 @@ router.get('/:id', restricted, async (req, res, next) => {
      .catch(err => {
          next(err)
      })
-      
   })
+
+  
+router.put('/:id', restricted, usernameCheck, (req, res, next) => {
+    const hash = bcrypt.hashSync(req.body.password, BCRYPT_ROUNDS)
+    
+    req.body.password = hash
+
+    const updateUser = {
+        person_id:req.params.id,
+        username:req.body.username,
+        password:req.body.password
+    }
+    User.update(req.params.id, updateUser)
+      .then(person => {
+          res.status(200).json(person);
+      })
+      .catch(next);
+  });
+  
 
   //deletes a user by id
   router.delete('/:id', restricted, async (req, res, next) => {

@@ -20,8 +20,15 @@ async function insertPotluck(potluck) {
     return db('potlucks').where({potluck_id}).del()
   }
 
+  function update(id, changes) {
+    return db('potlucks')
+      .where({ potluck_id:id })
+      .update(changes, '*');
+  }
+
   module.exports = {
       insertPotluck,
       findBy, 
-      deleteById
+      deleteById,
+      update
   }

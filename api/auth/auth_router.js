@@ -34,13 +34,13 @@ const {tokenBuilder, usernameCheck} = require('./auth_middleware');
   router.post('/login', async (req, res, next) => {
     let { username, password } = req.body
     User.findBy({username})
-    .then(([org]) => {
-        if(org && bcrypt.compareSync(password, org.password)){
-            const token = tokenBuilder(org)
+    .then(([person]) => {
+        if(person && bcrypt.compareSync(password, person.password)){
+            const token = tokenBuilder(person)
             res.status(200).json({
-                organizer_id:org.organizer_id,
-                username:org.username,
-                password:org.password,
+                person_id:person.person_id,
+                username:person.username,
+                password:person.password,
                 token
             })
         }else{

@@ -48,6 +48,20 @@ router.get('/', restricted,  async (req, res, next) => {
     })
   })
 
+  router.put('/:potluckid', restricted, (req, res, next) => {
+    const updatePotluck = {
+        ...req.body,
+        potluck_id:req.params.id
+    }
+  Potluck.update(req.params.id, updatePotluck)
+  .then(newPotluck => {
+      res.status(200).json(newPotluck)
+  })
+  .catch(err => {
+      next(err)
+  })
+})
+
 
   //delete specific potluck
   router.delete('/:potluckid', restricted, (req, res, next) => {
