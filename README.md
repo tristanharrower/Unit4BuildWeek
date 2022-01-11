@@ -52,7 +52,6 @@ Github: https://github.com/tristanharrower
 LinkedIn: https://www.linkedin.com/in/tristan-harrower-a8b0b5185/
 
 To-do
-
 Create table for users to save potlucks they want to attend.  potluck_id, person_id, username.
 Create api endpoint to retrieve all people attending a potluck.  /potluck/:potluckid/users
 
