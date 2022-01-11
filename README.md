@@ -26,7 +26,7 @@
 ## User Potlucks API Endpoints
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
-|POST     | /user/:id/potlucks   | Header -> Authorization : token, Body -> event_name, description, event_date, event_time, location     |potluck_id, person_id, event_name, description, event_date, event_time, location| creates a potluck for a specific user|
+|POST     | /user/:id/potlucks   | Header -> Authorization : token, Body -> event_name, description, event_date, event_time, location, role     |potluck_id, person_id, event_name, description, event_date, event_time, location, role| organizes or attends a potluck for a specific user|
 |GET     | /user/:id/potlucks   | Header -> Authorization : token    | potluck_id, person_id, event_name, description, event_date, event_time, location| gets all potlucks from a user |
 |GET     | /user/:id/potlucks/:potluckid   | Header -> Authorization:token     | potluck_id, person_id, event_name, description, event_date, event_time, location| gets single potluck by potluck ID |
 |PUT     | /user/:id/potlucks/:potluckid   |  Header -> Authorization:token     | potluck_id, person_id, event_name, description, event_date, event_time, location| updates potluck by potluck_id  |
@@ -52,7 +52,7 @@ Github: https://github.com/tristanharrower
 LinkedIn: https://www.linkedin.com/in/tristan-harrower-a8b0b5185/
 
 To-do
-Create table for users to save potlucks they want to attend.  potluck_id, person_id, username.
+update user potlucks to have role column. 
 Create api endpoint to retrieve all people attending a potluck.  /potluck/:potluckid/users
 
 

@@ -21,6 +21,7 @@ exports.up = async (knex) => {
         potlucks.string('event_date').notNullable()
         potlucks.string('event_time').notNullable()
         potlucks.string('location').notNullable()
+        potlucks.string('role').notNullable()
       })
 
       await knex.schema 
