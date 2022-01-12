@@ -16,6 +16,14 @@ async function insertPotluck(potluck) {
 
       return potluck;
   }
+
+  async function attendPotluck(potluck) {
+    const [newPotluck] = await db('attending-potlucks').insert(potluck,
+        ['potluck_id',  'person_id', 'username', 'event_name', 'description',
+         'event_date', 'event_time', 'location', 'role'] )
+    return newPotluck 
+  }
+
   function deleteById(potluck_id) {
     return db('potlucks').where({potluck_id}).del()
   }
@@ -28,6 +36,7 @@ async function insertPotluck(potluck) {
 
   module.exports = {
       insertPotluck,
+      attendPotluck,
       findBy, 
       deleteById,
       update

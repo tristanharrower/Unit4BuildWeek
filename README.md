@@ -29,6 +29,7 @@
 |POST     | /potlucks   | Header -> Authorization : token, Body -> person_id,event_name, description, event_date, event_time, location, role     |potluck_id, person_id, event_name, description, event_date, event_time, location, role| organizes a potluck for a specific user|
 |GET     | /potlucks   | Header -> Authorization : token, Body -> person_id    | potluck_id, person_id, event_name, description, event_date, event_time, location| gets all potlucks, if person_id in req.body, returns users organized potlucks |
 |GET     | /potlucks/:potluckid   | Header -> Authorization:token     | potluck_id, person_id, event_name, description, event_date, event_time, location| gets single potluck by potluck ID |
+|POST     | /potlucks/:potluckid   | Header -> Authorization : token, Body -> person_id, username, event_name, description, event_date, event_time, location, role     |potluck_id, person_id, username, event_name, description, event_date, event_time, location, role| attends a potluck for a specific user|
 |PUT     | /potlucks/:potluckid   |  Header -> Authorization:token     | potluck_id, person_id, event_name, description, event_date, event_time, location| updates potluck by potluck_id  |
 |DELETE     | /potlucks/:potluckid   |  Header -> Authorization:token     | 'Potluck Deleted!'| deletes single potluck  |
 

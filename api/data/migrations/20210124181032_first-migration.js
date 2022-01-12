@@ -42,7 +42,32 @@ exports.up = async (knex) => {
         .onUpdate('CASCADE')
         foods.string('food_wanted').notNullable()
       })
+      await knex.schema
+      .createTable('attending-potlucks', (attending) => {
+        attending.integer('potluck_id')
+        .unsigned()
+        .notNullable()
+        .references('potluck_id')
+        .inTable('potlucks')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE')
+        attending.integer('person_id')
+        .unsigned()
+        .references('person_id')
+        .inTable('person')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE')
+        attending.string('username')
+        attending.string('event_name', 128).notNullable()
+        attending.string('description', 256)
+        attending.string('event_date').notNullable()
+        attending.string('event_time').notNullable()
+        attending.string('location').notNullable()
+        attending.string('role').notNullable()
+      })
 }
+
+
 
 exports.down = async (knex) => {
   await knex.schema.dropTableIfExists('person')

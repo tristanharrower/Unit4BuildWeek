@@ -46,6 +46,19 @@ router.get('/', restricted,  async (req, res, next) => {
         next(err)
     })
   })
+  router.post('/:potluckid', restricted, (req, res, next) => {
+    const requestPotluck = {
+        potluck_id:req.params.potluckid,
+        ...req.body
+    }
+    Potluck.attendPotluck(requestPotluck)
+    .then(newPotluck => {
+        res.status(201).json(newPotluck)
+    })
+    .catch(err => {
+        next(err)
+    })
+  })
 
 
   router.put('/:potluckid', restricted, (req, res, next) => {
