@@ -16,7 +16,7 @@ server.use(cors())
 //routers as middleware
 server.use('/authorization', authorizationRouter);
 server.use('/user', userRouter);
-server.use('/user/:id/potlucks', potlucksRouter)
+server.use('/potlucks', potlucksRouter)
 server.use('/potlucks/:potluckid/foods', foodsRouter)
 
 //sanity check

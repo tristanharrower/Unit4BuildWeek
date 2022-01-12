@@ -5,10 +5,9 @@ const {restricted} = require('../auth/auth_middleware');
 
 const router = express.Router({mergeParams: true});
 
-//create a new potluck for a user
+//create a new potluck for a user, person_id needed in req.body
 router.post('/', restricted, (req, res, next) => {
     const requestPotluck = {
-        person_id:req.params.id,
         ...req.body
     }
     Potluck.insertPotluck(requestPotluck)
@@ -20,10 +19,10 @@ router.post('/', restricted, (req, res, next) => {
     })
   })
 
-    //get all potlucks from specific user
+    //get all potlucks, can specify person_id in req.body
 router.get('/', restricted,  async (req, res, next) => {
     const personId = {
-        person_id:req.params.id
+        ...req.body
     }
     Potluck.findBy(personId)
     .then(potluck => {
@@ -48,12 +47,12 @@ router.get('/', restricted,  async (req, res, next) => {
     })
   })
 
+
   router.put('/:potluckid', restricted, (req, res, next) => {
     const updatePotluck = {
         ...req.body,
-        potluck_id:req.params.id
     }
-  Potluck.update(req.params.id, updatePotluck)
+  Potluck.update(req.body.potluck_id, updatePotluck)
   .then(newPotluck => {
       res.status(200).json(newPotluck)
   })

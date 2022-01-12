@@ -26,11 +26,11 @@
 ## User Potlucks API Endpoints
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
-|POST     | /user/:id/potlucks   | Header -> Authorization : token, Body -> event_name, description, event_date, event_time, location, role     |potluck_id, person_id, event_name, description, event_date, event_time, location, role| organizes or attends a potluck for a specific user|
-|GET     | /user/:id/potlucks   | Header -> Authorization : token    | potluck_id, person_id, event_name, description, event_date, event_time, location| gets all potlucks from a user |
-|GET     | /user/:id/potlucks/:potluckid   | Header -> Authorization:token     | potluck_id, person_id, event_name, description, event_date, event_time, location| gets single potluck by potluck ID |
-|PUT     | /user/:id/potlucks/:potluckid   |  Header -> Authorization:token     | potluck_id, person_id, event_name, description, event_date, event_time, location| updates potluck by potluck_id  |
-|DELETE     | /user/:id/potlucks/:potluckid   |  Header -> Authorization:token     | 'Potluck Deleted!'| deletes single potluck  |
+|POST     | /potlucks   | Header -> Authorization : token, Body -> person_id,event_name, description, event_date, event_time, location, role     |potluck_id, person_id, event_name, description, event_date, event_time, location, role| organizes a potluck for a specific user|
+|GET     | /potlucks   | Header -> Authorization : token, Body -> person_id    | potluck_id, person_id, event_name, description, event_date, event_time, location| gets all potlucks, if person_id in req.body, returns users organized potlucks |
+|GET     | /potlucks/:potluckid   | Header -> Authorization:token     | potluck_id, person_id, event_name, description, event_date, event_time, location| gets single potluck by potluck ID |
+|PUT     | /potlucks/:potluckid   |  Header -> Authorization:token     | potluck_id, person_id, event_name, description, event_date, event_time, location| updates potluck by potluck_id  |
+|DELETE     | /potlucks/:potluckid   |  Header -> Authorization:token     | 'Potluck Deleted!'| deletes single potluck  |
 
 ---
 
