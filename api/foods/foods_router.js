@@ -7,8 +7,9 @@ const router = express.Router({mergeParams: true});
   router.post('/', restricted, (req, res, next) => {
         const food = {
             potluck_id:req.params.potluckid,
-            food_wanted: req.body.food_wanted, 
-            person_id:req.body.person_id
+            person_id:req.body.person_id,
+            username:req.body.username,
+            food_wanted: req.body.food_wanted
         }
     
     Foods.insertFood(food)
@@ -39,6 +40,7 @@ const router = express.Router({mergeParams: true});
         food_id:req.params.foodid, 
         potluck_id:req.params.potluckid,
         person_id:req.body.person_id,
+        username:req.body.username,
         food_wanted:req.body.food_wanted
     }
   Foods.update(req.params.foodid, updateFood)

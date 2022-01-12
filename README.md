@@ -39,7 +39,7 @@
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
 |POST     | /potlucks/:potluckid/foods   | Header -> Authorization:token Body -> food_wanted |food_id, potluck_id, food_wanted | creates new food for a single potluck |
-|GET     | /potlucks/:potluckid/foods   | Header -> Authorization:token    |food_id,potluck_id, food_wanted | list of foods for a single potluck|
+|GET     | /potlucks/:potluckid/foods   | Header -> Authorization:token    |food_id,potluck_id,username,food_wanted | list of foods for a single potluck|
 |PUT     | /potlucks/:potluckid/foods/:foodsid   | Header -> Authorization:token    |food_id,potluck_id, person_id, food_wanted | updates food by food_id|
 |DELETE     | /potlucks/:potluckid/foods/:foodid   | Header -> Authorization:token | 'Food Deleted!'| deletes a single food item |
 

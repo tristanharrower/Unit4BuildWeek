@@ -40,6 +40,7 @@ exports.up = async (knex) => {
         .inTable('person')
         .onDelete('CASCADE')
         .onUpdate('CASCADE')
+        foods.string('username')
         foods.string('food_wanted').notNullable()
       })
       await knex.schema

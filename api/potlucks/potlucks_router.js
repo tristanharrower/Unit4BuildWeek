@@ -46,6 +46,8 @@ router.get('/', restricted,  async (req, res, next) => {
         next(err)
     })
   })
+
+  //attends a potluck based on person_id in req.body
   router.post('/:potluckid', restricted, (req, res, next) => {
     const requestPotluck = {
         potluck_id:req.params.potluckid,
