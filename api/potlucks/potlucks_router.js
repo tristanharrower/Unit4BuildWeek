@@ -33,36 +33,6 @@ router.get('/', restricted,  async (req, res, next) => {
     })
 })
 
-//get specific potluck by potluck id
-  router.get('/:potluckid', restricted, (req, res, next) => {
-      const potluckId = {
-        potluck_id: req.params.potluckid
-      }
-    Potluck.findBy(potluckId)
-    .then(potentialPotluck => {
-        res.status(200).json(potentialPotluck)
-    })
-    .catch(err => {
-        next(err)
-    })
-  })
-
-  //attends a potluck based on person_id in req.body
-  router.post('/:potluckid', restricted, (req, res, next) => {
-    const requestPotluck = {
-        potluck_id:req.params.potluckid,
-        ...req.body
-    }
-    Potluck.attendPotluck(requestPotluck)
-    .then(newPotluck => {
-        res.status(201).json(newPotluck)
-    })
-    .catch(err => {
-        next(err)
-    })
-  })
-
-
   router.put('/:potluckid', restricted, (req, res, next) => {
     const updatePotluck = {
         ...req.body,
@@ -76,7 +46,6 @@ router.get('/', restricted,  async (req, res, next) => {
   })
 })
 
-
   //delete specific potluck
   router.delete('/:potluckid', restricted, (req, res, next) => {
     Potluck.deleteById(req.params.potluckid)
@@ -87,8 +56,5 @@ router.get('/', restricted,  async (req, res, next) => {
         next(err)
     })
 })
-
-
-
 
 module.exports = router

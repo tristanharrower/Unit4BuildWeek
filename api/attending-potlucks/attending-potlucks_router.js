@@ -8,7 +8,6 @@ const router = express.Router({mergeParams: true});
   //attends a potluck based on person_id in req.body
   router.post('/', restricted, (req, res, next) => {
     const requestPotluck = {
-        potluck_id:req.params.potluckid,
         ...req.body
     }
     attendingPotlucks.attendPotluck(requestPotluck)
@@ -19,6 +18,34 @@ const router = express.Router({mergeParams: true});
         next(err)
     })
   })
+
+  router.get('/', restricted,  async (req, res, next) => {
+    const personId = {
+        ...req.body
+    }
+    attendingPotlucks.findBy(personId)
+    .then(potluck => {
+        res.status(200).json(potluck)
+    })
+    .catch(err => {
+        next(err)
+    })
+})
+
+  //delete specific potluck
+  router.delete('/:potluckid', restricted, (req, res, next) => {
+      const filter = {
+        potluck_id: req.params.potluckid,
+        person_id: req.body.person_id,
+      }
+    attendingPotlucks.deleteBy(filter)
+    .then(() => {
+        res.status(200).json(`User ${req.body.person_id} no longer attending Potluck: ${req.params.potluckid}`)
+    })
+    .catch(err => {
+        next(err)
+    })
+})
 
 
 module.exports = router;
