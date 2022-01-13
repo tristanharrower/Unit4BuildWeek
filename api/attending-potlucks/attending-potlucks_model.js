@@ -7,28 +7,33 @@ async function attendPotluck(potluck) {
   }
 
   
-  async function getAll() {
-    const potluck = await db("attending-potlucks")
-    .join('potlucks', 'attending-potlucks.potluck_id', '=', 'potlucks.potluck_id')
-    .select('potlucks.potluck_id',  'attending-potlucks.person_id', 'attending-potlucks.username',
-       'potlucks.event_name', 'potlucks.description','potlucks.event_date', 
-       'potlucks.event_time', 'potlucks.location', 'attending-potlucks.role')
+  async function findBy(filter) {
+    const filterKey = Object.keys(filter);
+    const filterValue = Object.values(filter)
 
-      return potluck;
-  }
-
-  async function findById(id) {
-    
-    const potluck = await db("attending-potlucks")
-    .join('potlucks', 'attending-potlucks.potluck_id', '=', 'potlucks.potluck_id')
+    if(filterKey[0]===undefined){
+      const potluck = await db("attending-potlucks")
+      .join('potlucks', 'attending-potlucks.potluck_id', '=', 'potlucks.potluck_id')
       .select('potlucks.potluck_id',  'attending-potlucks.person_id', 'attending-potlucks.username',
-       'potlucks.event_name', 'potlucks.description','potlucks.event_date', 
-       'potlucks.event_time', 'potlucks.location', 'attending-potlucks.role')
-       .where('attending-potlucks.person_id', id)
-      
+         'potlucks.event_name', 'potlucks.description','potlucks.event_date', 
+         'potlucks.event_time', 'potlucks.location', 'attending-potlucks.role')
 
-      return potluck;
+         return potluck
+    }else {
+      const potluck = await db("attending-potlucks")
+      .join('potlucks', 'attending-potlucks.potluck_id', '=', 'potlucks.potluck_id')
+      .select('potlucks.potluck_id',  'attending-potlucks.person_id', 'attending-potlucks.username',
+         'potlucks.event_name', 'potlucks.description','potlucks.event_date', 
+         'potlucks.event_time', 'potlucks.location', 'attending-potlucks.role')
+      .where(`attending-potlucks.${filterKey[0]}`, filterValue[0])
+        return potluck;
+    }
+   
+  
+ 
+
   }
+
 
   function deleteBy(filter) {
     return db('attending-potlucks').where(filter).del()
@@ -36,7 +41,6 @@ async function attendPotluck(potluck) {
 
 module.exports = {
     attendPotluck,
-    getAll,
-    findById,
+    findBy,
     deleteBy
 }
