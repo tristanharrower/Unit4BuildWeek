@@ -5,6 +5,7 @@ const cors = require('cors')
 const authorizationRouter = require('./auth/auth_router');
 const userRouter = require('./user/user_router');
 const potlucksRouter = require('./potlucks/potlucks_router')
+const attendingPotlucksRouter = require('./attending-potlucks/attending-potlucks_router')
 const foodsRouter = require('./foods/foods_router');
 
 //starter middlwares
@@ -17,6 +18,7 @@ server.use(cors())
 server.use('/authorization', authorizationRouter);
 server.use('/user', userRouter);
 server.use('/potlucks', potlucksRouter)
+server.use('/attending-potlucks', attendingPotlucksRouter)
 server.use('/potlucks/:potluckid/foods', foodsRouter)
 
 //sanity check
