@@ -37,7 +37,8 @@
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
 |POST     | /attending-potlucks   | Header -> Authorization : token, Body ->(potluck_id, person_id, username,) event_name, description, event_date, event_time, location, role     |potluck_id, person_id, username, event_name, description, event_date, event_time, location, role| attends a potluck for a user|
-|GET     | /attending-potlucks   | Header -> Authorization : token, Body -> filter    | potluck_id, person_id, username, event_name, description, event_date, event_time, location| gets all attending potlucks, specify filter in req.body |
+|GET     | /attending-potlucks   | Header -> Authorization : token, Body -> filter    | potluck_id, person_id, username, event_name, description, event_date, event_time, location| gets all attending potlucks |
+|GET     | /attending-potlucks/:personid   | Header -> Authorization : token, Body -> filter    | potluck_id, person_id, username, event_name, description, event_date, event_time, location| gets all attending potlucks for usuer by id |
 |DELETE     | /attending-potlucks/:potluckid   |  Header -> Authorization:token, Body -> person_id     | User {req.body.person}_id no longer attending Potluck: {req.params.potluckid}| deletes single attending potluck  |
 ---
 

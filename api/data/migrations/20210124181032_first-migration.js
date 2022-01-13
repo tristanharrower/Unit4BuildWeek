@@ -60,11 +60,6 @@ exports.up = async (knex) => {
         .onDelete('CASCADE')
         .onUpdate('CASCADE')
         attending.string('username')
-        attending.string('event_name', 128).notNullable()
-        attending.string('description', 256)
-        attending.string('event_date').notNullable()
-        attending.string('event_time').notNullable()
-        attending.string('location').notNullable()
         attending.string('role').notNullable()
       })
 }

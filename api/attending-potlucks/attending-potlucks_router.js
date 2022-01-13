@@ -18,13 +18,21 @@ const router = express.Router({mergeParams: true});
         next(err)
     })
   })
+  router.get('/', restricted,  async (req, res, next) => {
+      
+    attendingPotlucks.getAll()
+    .then(potluck => {
+        res.status(200).json(potluck)
+    })
+    .catch(err => {
+        next(err)
+    })
+})
 
    //get all attending potlucks, can specify filter in req.body
-  router.get('/', restricted,  async (req, res, next) => {
-    const filter = {
-        ...req.body
-    }
-    attendingPotlucks.findBy(filter)
+  router.get('/:personid', restricted,  async (req, res, next) => {
+      
+    attendingPotlucks.findById(req.params.personid)
     .then(potluck => {
         res.status(200).json(potluck)
     })
