@@ -26,7 +26,7 @@
 ## Organizer Potlucks API Endpoints
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
-|POST     | /potlucks   | Header -> Authorization : token, Body -> person_id,event_name, description, event_date, event_time, location, role     |potluck_id, person_id, event_name, description, event_date, event_time, location, role| organizes a potluck for a specific user|
+|POST     | /potlucks   | Header -> Authorization : token, Body -> person_id,event_name, description, event_date, event_time, location, role     |potluck_id, person_id, event_name, description, event_date, event_time, location, role| organizes a potluck for a user|
 |GET     | /potlucks   | Header -> Authorization : token, Body -> person_id    | potluck_id, person_id, event_name, description, event_date, event_time, location| gets all organized potlucks, specify filter in req.body |
 |PUT     | /potlucks/:potluckid   |  Header -> Authorization:token     | potluck_id, person_id, event_name, description, event_date, event_time, location| updates potluck by potluck_id  |
 |DELETE     | /potlucks/:potluckid   |  Header -> Authorization:token     | 'Potluck Deleted!'| deletes single potluck  |
@@ -36,9 +36,9 @@
 ## Attending Potlucks API Endpoints
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
-|POST     | /attending-potlucks   | Header -> Authorization : token, Body -> person_id, username, event_name, description, event_date, event_time, location, role     |potluck_id, person_id, username, event_name, description, event_date, event_time, location, role| attends a potluck for a specific user|
+|POST     | /attending-potlucks   | Header -> Authorization : token, Body -> person_id, username, event_name, description, event_date, event_time, location, role     |potluck_id, person_id, username, event_name, description, event_date, event_time, location, role| attends a potluck for a user|
 |GET     | /attending-potlucks   | Header -> Authorization : token, Body -> person_id    | potluck_id, person_id, event_name, description, event_date, event_time, location| gets all attending potlucks, specify filter in req.body |
-|DELETE     | /attending-potlucks/:potluckid   |  Header -> Authorization:token, Body -> person_id     | User req.body.person_id no longer attending Potluck: req.params.potluckid| deletes single attending potluck  |
+|DELETE     | /attending-potlucks/:potluckid   |  Header -> Authorization:token, Body -> person_id     | User {req.body.person}_id no longer attending Potluck: {req.params.potluckid}| deletes single attending potluck  |
 ---
 
 ## Potluck Foods API Endpoints
