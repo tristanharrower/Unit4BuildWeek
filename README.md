@@ -17,9 +17,9 @@
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
 |GET     | /user  | Header -> Authorization:token  |person_id, username, password, created_at, updated_at | returns a list of all user's|
-|GET     | /user/:id   | Header -> Authorization:token  |person_id, username, password | returns a single user's information by id|
-|PUT     | /user/:id   | Header -> Authorization:token  |person_id, username, password | updates a user by person_id|
-|DELETE     | /user/:id   | Header -> Authorization:token  | 1 if deleted, 0 if not | deletes a user by id|
+|GET     | /user/:userid   | Header -> Authorization:token  |person_id, username, password | returns a single user's information by id|
+|PUT     | /user/:userid   | Header -> Authorization:token  |person_id, username, password | updates a user by person_id|
+|DELETE     | /user/:userid   | Header -> Authorization:token  | 1 if deleted, 0 if not | deletes a user by id|
 
 ---
 
