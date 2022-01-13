@@ -35,6 +35,7 @@ router.get('/', restricted,  async (req, res, next) => {
 
   router.put('/:potluckid', restricted, (req, res, next) => {
     const updatePotluck = {
+        potluck_id:req.params.potluckid,
         ...req.body,
     }
   Potluck.update(req.body.potluck_id, updatePotluck)

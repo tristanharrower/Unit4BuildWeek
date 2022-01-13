@@ -16,6 +16,7 @@ exports.up = async (knex) => {
         .inTable('person')
         .onDelete('CASCADE')
         .onUpdate('CASCADE')
+        potlucks.string('username', 128).notNullable()
         potlucks.string('event_name', 128).notNullable()
         potlucks.string('description', 256)
         potlucks.string('event_date').notNullable()
