@@ -19,12 +19,12 @@ router.post('/', restricted, (req, res, next) => {
     })
   })
 
-    //get all potlucks, can specify person_id in req.body
+    //get all potlucks, can specify filter in req.body
 router.get('/', restricted,  async (req, res, next) => {
-    const personId = {
+    const filter = {
         ...req.body
     }
-    Potluck.findBy(personId)
+    Potluck.findBy(filter)
     .then(potluck => {
         res.status(200).json(potluck)
     })
