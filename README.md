@@ -58,7 +58,7 @@ Github: https://github.com/tristanharrower
 
 LinkedIn: https://www.linkedin.com/in/tristan-harrower-a8b0b5185/
 
-To-do
+To-do: foreign key for all of potluck data that points to attending potluck data
 
 
 
