@@ -58,7 +58,7 @@ Github: https://github.com/tristanharrower
 
 LinkedIn: https://www.linkedin.com/in/tristan-harrower-a8b0b5185/
 
-To-do: take out potluck info in attending potluck table.  attending potluck -> potluck_id, person_id, username.  Requests will join attending table and potlucks table.
+To-do: Re-create Front End using React and Redux!
 
 
 
