@@ -54,8 +54,29 @@ const usernameCheck = async (req, res, next) => {
         next(err)
     }    
 }
+
+const emailCheck = async (req, res, next) => {
+  try{
+      const potentialEmail = {
+          email:req.body.email
+      }
+      const check = await User.findBy(potentialEmail)
+          if(check.length===0){
+              next()
+          } else {
+              next({
+                  status:409, 
+                  message:"Email taken!"
+              })
+          }
+  } catch (err) {
+      next(err)
+  }    
+}
+
 module.exports = {
     tokenBuilder,
     usernameCheck, 
+    emailCheck,
     restricted
 }
