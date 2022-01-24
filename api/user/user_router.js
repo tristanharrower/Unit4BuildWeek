@@ -39,7 +39,6 @@ router.get('/:id', restricted, async (req, res, next) => {
      })
   })
 
-  
 router.put('/:id', restricted, usernameCheck, (req, res, next) => {
     const hash = bcrypt.hashSync(req.body.password, BCRYPT_ROUNDS)
     
@@ -47,6 +46,7 @@ router.put('/:id', restricted, usernameCheck, (req, res, next) => {
 
     const updateUser = {
         person_id:req.params.id,
+        email:req.body.email,
         username:req.body.username,
         password:req.body.password
     }
