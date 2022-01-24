@@ -8,8 +8,8 @@
 
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
-|POST     | /authorization/register   | Body -> username, password    | person_id, username, password| registers and returns a new user   |
-|POST     | /authorization/login   | Body -> username, password    | person_id, username, password, token| logs in an organizer and sends back JWT token  |
+|POST     | /authorization/register   | Body -> email, username, password    | email, person_id, username, password| registers and returns a new user   |
+|POST     | /authorization/login   | Body -> email, password    | person_id, email,  username, password, token| logs in an organizer and sends back JWT token  |
 
 ---
 
@@ -17,8 +17,8 @@
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
 |GET     | /user  | Header -> Authorization:token  |person_id, username, password, created_at, updated_at | returns a list of all user's|
-|GET     | /user/:userid   | Header -> Authorization:token  |person_id, username, password | returns a single user's information by id|
-|PUT     | /user/:userid   | Header -> Authorization:token  |person_id, username, password | updates a user by person_id|
+|GET     | /user/:userid   | Header -> Authorization:token  |person_id, email,  username, password | returns a single user's information by id|
+|PUT     | /user/:userid   | Header -> Authorization:token  |person_id, email,  username, password | updates a user by person_id|
 |DELETE     | /user/:userid   | Header -> Authorization:token  | 1 if deleted, 0 if not | deletes a user by id|
 
 ---
