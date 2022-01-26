@@ -18,6 +18,8 @@
 |------   | -----------   | ------- | ------- | ------ |
 |GET     | /user  | Header -> Authorization:token  |person_id, username, password, created_at, updated_at | returns a list of all user's|
 |GET     | /user/:userid   | Header -> Authorization:token  |person_id, email,  username, password | returns a single user's information by id|
+|GET     | /user/:userid/potlucks   | Header -> Authorization:token  |potluck_id, person_id, username, event_name, description, event_date, event_time, location, role | returns user's organized potlucks|
+|GET     | /user/:userid/attending-potlucks   | Header -> Authorization:token  |potluck_id, person_id, username, event_name, description, event_date, event_time, location, role | returns user's organized potlucks|
 |PUT     | /user/:userid   | Header -> Authorization:token  |person_id, email,  username, password | updates a user by person_id|
 |DELETE     | /user/:userid   | Header -> Authorization:token  | 1 if deleted, 0 if not | deletes a user by id|
 
@@ -27,7 +29,7 @@
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
 |POST     | /potlucks   | Header -> Authorization : token, Body -> person_id, username, event_name, description, event_date, event_time, location, role     |potluck_id, person_id, username, event_name, description, event_date, event_time, location, role| organizes a potluck for a user|
-|GET     | /potlucks   | Header -> Authorization : token, Body -> filter   | potluck_id, person_id, username, event_name, description, event_date, event_time, location| gets all organized potlucks, specify filter in req.body |
+|GET     | /potlucks   | Header -> Authorization : token   | potluck_id, person_id, username, event_name, description, event_date, event_time, location, role| gets all organized potlucks|
 |PUT     | /potlucks/:potluckid   |  Header -> Authorization:token, Body -> person_id, username,event_name, description, event_date, event_time, location, role     | potluck_id, username, person_id, event_name, description, event_date, event_time, location| updates potluck by potluck_id  |
 |DELETE     | /potlucks/:potluckid   |  Header -> Authorization:token     | 'Potluck Deleted!'| deletes single potluck  |
 
@@ -37,7 +39,7 @@
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
 |POST     | /attending-potlucks   | Header -> Authorization : token, Body ->(potluck_id, person_id, username,) event_name, description, event_date, event_time, location, role     |potluck_id, person_id, username, event_name, description, event_date, event_time, location, role| attends a potluck for a user|
-|GET     | /attending-potlucks   | Header -> Authorization : token, Body -> filter    | potluck_id, person_id, username, event_name, description, event_date, event_time, location, role| gets all attending potlucks, specify filter in req.body |
+|GET     | /attending-potlucks   | Header -> Authorization : token    | potluck_id, person_id, username, event_name, description, event_date, event_time, location, role| gets all attending potlucks|
 |DELETE     | /attending-potlucks/:potluckid   |  Header -> Authorization:token, Body -> person_id     | User {req.body.person}_id no longer attending Potluck: {req.params.potluckid}| deletes single attending potluck  |
 ---
 
