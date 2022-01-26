@@ -19,7 +19,7 @@
 |GET     | /user  | Header -> Authorization:token  |person_id, username, password, created_at, updated_at | returns a list of all user's|
 |GET     | /user/:userid   | Header -> Authorization:token  |person_id, email,  username, password | returns a single user's information by id|
 |GET     | /user/:userid/potlucks   | Header -> Authorization:token  |potluck_id, person_id, username, event_name, description, event_date, event_time, location, role | returns user's organized potlucks|
-|GET     | /user/:userid/attending-potlucks   | Header -> Authorization:token  |potluck_id, person_id, username, event_name, description, event_date, event_time, location, role | returns user's organized potlucks|
+|GET     | /user/:userid/attending-potlucks   | Header -> Authorization:token  |potluck_id, person_id, username, event_name, description, event_date, event_time, location, role | returns user's attending potlucks|
 |PUT     | /user/:userid   | Header -> Authorization:token  |person_id, email,  username, password | updates a user by person_id|
 |DELETE     | /user/:userid   | Header -> Authorization:token  | 1 if deleted, 0 if not | deletes a user by id|
 
