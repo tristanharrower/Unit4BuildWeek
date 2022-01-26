@@ -19,9 +19,9 @@ const router = express.Router({mergeParams: true});
     })
   })
   router.get('/', restricted,  async (req, res, next) => {
-      const filter = {
-          ...req.body
-      }
+    const filter = {
+        ...req.query
+    }
     attendingPotlucks.findBy(filter)
     .then(potluck => {
         res.status(200).json(potluck)
