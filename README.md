@@ -49,6 +49,13 @@
 |PUT     | /potlucks/:potluckid/foods/:foodid   | Header -> Authorization:token    |food_id,potluck_id, person_id, food_wanted | updates food by food_id|
 |DELETE     | /potlucks/:potluckid/foods/:foodid   | Header -> Authorization:token | 'Food Deleted!'| deletes a single food item |
 
+## Messages API Endpoints
+|Method   | Endpoint      |Request    | Response  | Notes  |
+|------   | -----------   | ------- | ------- | ------ |
+|POST     | /messages   | Header -> Authorization:token Body -> organizer_id,attendee_id, attendee_username, potluck_id |message_id, potluck_id, username, attendee_id, attendee_username, event_name, description, event_date, event_time, location | creates new message |
+|GET     | /messages   | Header -> Authorization:token    |message_id, potluck_id, username, attendee_id, attendee_username, event_name, description, event_date, event_time, location | list of all messages, specify req in params|
+|DELETE     | /messages/:messageid  | Header -> Authorization:token | 'Message Deleted'| deletes a message |
+
 
 ## Meet The Team
 
