@@ -14,14 +14,14 @@ async function createMessage(message) {
     if(filterKey[0]===undefined){
       const messages = await db("messages")
       .join('potlucks', 'messages.potluck_id', '=', 'potlucks.potluck_id')
-      .select('messages.message_id','potlucks.potluck_id','potlucks.username',  'messages.attendee_id',
+      .select('messages.message_id','potlucks.potluck_id','messages.organizer_id','potlucks.username',  'messages.attendee_id',
          'messages.attendee_username','messages.type', 'potlucks.event_name', 'potlucks.description','potlucks.event_date', 
          'potlucks.event_time', 'potlucks.location')
          return messages
     }else {
       const messages = await db("messages")
       .join('potlucks', 'messages.potluck_id', '=', 'potlucks.potluck_id')
-      .select('messages.message_id','potlucks.potluck_id', 'potlucks.username','messages.attendee_id',
+      .select('messages.message_id','potlucks.potluck_id','messages.organizer_id', 'potlucks.username','messages.attendee_id',
       'messages.attendee_username', 'messages.type', 'potlucks.event_name', 'potlucks.description','potlucks.event_date', 
          'potlucks.event_time', 'potlucks.location')
       .where(`messages.${filterKey[0]}`, filterValue[0])
