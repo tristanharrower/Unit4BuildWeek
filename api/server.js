@@ -7,6 +7,7 @@ const userRouter = require('./user/user_router');
 const potlucksRouter = require('./potlucks/potlucks_router')
 const attendingPotlucksRouter = require('./attending-potlucks/attending-potlucks_router')
 const foodsRouter = require('./foods/foods_router');
+const messagesRouter = require('./messages/messages_router')
 
 //starter middlwares
 const server = express()
@@ -18,6 +19,7 @@ server.use(cors())
 server.use('/authorization', authorizationRouter);
 server.use('/user', userRouter);
 server.use('/potlucks', potlucksRouter)
+server.use('/messages', messagesRouter)
 server.use('/attending-potlucks', attendingPotlucksRouter)
 server.use('/potlucks/:potluckid/foods', foodsRouter)
 

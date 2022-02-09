@@ -18,6 +18,7 @@ const router = express.Router({mergeParams: true});
         next(err)
     })
   })
+  
   router.get('/', restricted,  async (req, res, next) => {
     const filter = {
         ...req.query

@@ -27,12 +27,8 @@ async function attendPotluck(potluck) {
       .where(`attending-potlucks.${filterKey[0]}`, filterValue[0])
         return potluck;
     }
-   
-  
- 
 
   }
-
 
   function deleteBy(filter) {
     return db('attending-potlucks').where(filter).del()
