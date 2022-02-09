@@ -5,7 +5,6 @@ async function attendPotluck(potluck) {
         ['potluck_id',  'person_id', 'username', 'role'] )
     return newPotluck 
   }
-
   
   async function findBy(filter) {
     const filterKey = Object.keys(filter);
