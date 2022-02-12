@@ -12,8 +12,10 @@ const User = require('./user_model');
 //returns all users
 
 router.get('/', restricted,(req, res, next) => {
-
-    User.getAllUsers()
+    const filter = {
+        ...req.query
+    }
+    User.findBy(filter)
      .then(users => {
          res.status(201).json(users)
      })
