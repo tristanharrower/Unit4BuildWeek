@@ -4,14 +4,14 @@ async function insertPotluck(potluck) {
   
     const [newPotluck] = await db('potlucks').insert(potluck,
         ['potluck_id',  'person_id', 'username', 'event_name', 'description',
-         'event_date', 'event_time', 'location', 'role'] )
+         'event_date', 'event_time', 'location', 'role','picture'] )
     return newPotluck 
   }
 
   async function findBy(filter) {
     const potluck = await db("potlucks")
       .select('potluck_id',  'person_id','username', 'event_name', 'description',
-      'event_date', 'event_time', 'location', 'role')
+      'event_date', 'event_time', 'location', 'role', 'picture')
       .where(filter)
 
       return potluck;

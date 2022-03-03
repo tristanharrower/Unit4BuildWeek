@@ -15,7 +15,7 @@ async function attendPotluck(potluck) {
       .join('potlucks', 'attending-potlucks.potluck_id', '=', 'potlucks.potluck_id')
       .select('potlucks.potluck_id',  'attending-potlucks.person_id', 'attending-potlucks.username',
          'potlucks.event_name', 'potlucks.description','potlucks.event_date', 
-         'potlucks.event_time', 'potlucks.location', 'attending-potlucks.role')
+         'potlucks.event_time', 'potlucks.location','potlucks.picture', 'attending-potlucks.role')
 
          return potluck
     }else {
@@ -23,7 +23,7 @@ async function attendPotluck(potluck) {
       .join('potlucks', 'attending-potlucks.potluck_id', '=', 'potlucks.potluck_id')
       .select('potlucks.potluck_id',  'attending-potlucks.person_id', 'attending-potlucks.username',
          'potlucks.event_name', 'potlucks.description','potlucks.event_date', 
-         'potlucks.event_time', 'potlucks.location', 'attending-potlucks.role')
+         'potlucks.event_time', 'potlucks.location','potlucks.picture', 'attending-potlucks.role')
       .where(`attending-potlucks.${filterKey[0]}`, filterValue[0])
         return potluck;
     }
