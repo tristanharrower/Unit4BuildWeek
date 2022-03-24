@@ -10,14 +10,13 @@ const User = require('./user_model');
 
 
 //returns all users
-
 router.get('/', restricted,(req, res, next) => {
     const filter = {
         ...req.query
     }
     User.findBy(filter)
      .then(users => {
-         res.status(201).json(users)
+         res.status(200).json(users)
      })
      .catch(err => {
          next(err)
@@ -34,7 +33,7 @@ router.get('/:id', restricted, async (req, res, next) => {
 
     User.findBy(potentialUser)
      .then(org => {
-         res.status(201).json(org)
+         res.status(200).json(org)
      })
      .catch(err => {
          next(err)
@@ -54,7 +53,7 @@ router.put('/:id', restricted, usernameCheck, (req, res, next) => {
     }
     User.update(req.params.id, updateUser)
       .then(person => {
-          res.status(200).json(person);
+          res.status(201).json(person);
       })
       .catch(next);
   });
@@ -65,7 +64,7 @@ router.put('/:id', restricted, usernameCheck, (req, res, next) => {
 
     User.deleteById(req.params.id)
      .then(org => {
-         res.status(201).json(org)
+         res.status(200).json(org)
      })
      .catch(err => {
          next(err)

@@ -9,7 +9,7 @@ const attendingPotlucksRouter = require('./attending-potlucks/attending-potlucks
 const foodsRouter = require('./foods/foods_router');
 const messagesRouter = require('./messages/messages_router')
 
-//starter middlwares
+//starter middlewares
 const server = express()
 server.use(express.json())
 server.use(helmet())
