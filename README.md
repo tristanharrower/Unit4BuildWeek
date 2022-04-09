@@ -26,9 +26,9 @@
 ## Organizer Potlucks API Endpoints
 |Method   | Endpoint      |Request    | Response  | Notes  |
 |------   | -----------   | ------- | ------- | ------ |
-|POST     | /potlucks   | Header -> Authorization : token, Body -> person_id, username, event_name, description, event_date, event_time, location, role     |potluck_id, person_id, username, event_name, description, event_date, event_time, location, role| organizes a potluck for a user|
-|GET     | /potlucks   | Header -> Authorization : token   | potluck_id, person_id, username, event_name, description, event_date, event_time, location, role| gets all organized potlucks, specify req in params|
-|PUT     | /potlucks/:potluckid   |  Header -> Authorization:token, Body -> person_id, username,event_name, description, event_date, event_time, location, role     | potluck_id, username, person_id, event_name, description, event_date, event_time, location| updates potluck by potluck_id  |
+|POST     | /potlucks   | Header -> Authorization : token, Body -> person_id, username, event_name, description, event_date, event_time, location, role     | person_id, username, event_name, description, event_date, event_time, location, role| organizes a potluck for a user|
+|GET     | /potlucks   | Header -> Authorization : token   |  person_id, username, event_name, description, event_date, event_time, location, role| gets all organized potlucks, specify req in params|
+|PUT     | /potlucks/:potluckid   |  Header -> Authorization:token, Body -> person_id, username,event_name, description, event_date, event_time, location, role     |  username, person_id, event_name, description, event_date, event_time, location| updates potluck by  |
 |DELETE     | /potlucks/:potluckid   |  Header -> Authorization:token     | 'Potluck Deleted!'| deletes single potluck  |
 
 ---
